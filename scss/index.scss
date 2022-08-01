@@ -186,7 +186,6 @@ header {
 main {
     display: grid;
     font-family: 'Poppins', sans-serif;
-    grid-template-columns: 90%;
     justify-content: center;
     margin: 80px auto 20px auto;
     text-align: center;
@@ -197,7 +196,7 @@ main {
         grid-template-rows: repeat(auto-fit, auto);
         // min-height: 500px;
         place-items: center;
-        padding: 40px 0;
+        padding: 40px 20px;
 
         &:first-of-type {
             padding-top: 0;
@@ -429,6 +428,176 @@ main {
                 grid-area: button;
             }
         }
+
+        &#section6 {
+            background-color: #252B42;
+            color: white;
+            grid-template-areas:
+                "h2"
+                "p"
+                "article1"
+                "article2"
+                "article3";
+
+            p {
+
+                &:nth-of-type(even) {
+                    margin: 10px 0;
+                }
+            }
+
+            article {
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 0 5px #0e1019;
+                color: #252B42;
+                margin-top: 20px;
+                padding: 40px 20px;
+
+                &:nth-of-type(1) {
+                    grid-area: article1;
+                }
+
+                &:nth-of-type(2) {
+                    background-color: #2091F9;
+                    color: white;
+                    grid-area: article2;
+
+                    button {
+                        background-color: white;
+                        color: #2091F9;
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    grid-area: article3;
+                }
+
+                p {
+                    &:first-of-type {
+                        max-width: 70%;
+                        margin: 0 auto;
+                    }
+                }
+
+                h3 {
+                    font-family: 'Poppins-ExtraBold', sans-serif;
+                    text-transform: uppercase;
+                }
+
+                .price {
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                    gap: 5px;
+
+                    .number {
+                        font-family: 'Poppins-ExtraBold', sans-serif;
+                        font-size: 3.5rem;
+                    }
+
+                    .details {
+                        align-items: flex-start;
+                        display: flex;
+                        flex-direction: column;
+
+                        span {
+                            &:first-of-type {
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+
+            button {
+                margin-top: 20px;
+            }
+        }
+
+        &#section7 {
+            grid-template-areas:
+                "h2"
+                "p"
+                "links"
+                "contact-details"
+                "form";
+
+            .map {
+                display: none;
+            }
+
+            .links {
+                display: flex;
+                grid-area: links;
+                gap: 15px;
+                margin: 30px 0;
+
+                a {
+                    height: 30px;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+
+            article {
+                align-items: center;
+                display: grid;
+                gap: 10px;
+                grid-area: contact-details;
+                grid-template-columns: 40px auto;
+                grid-template-rows: repeat(3, auto);
+                grid-template-areas:
+                    "location-icon location-detail"
+                    "phone-icon phone-detail"
+                    "email-icon email-detail";
+
+                img {
+                    justify-self: center;
+                    max-height: 30px;
+                    max-width: 30px;
+
+                    &:nth-of-type(1) {
+                        grid-area: location-icon;
+                    }
+
+                    &:nth-of-type(2) {
+                        grid-area: phone-icon;
+                    }
+
+                    &:nth-of-type(3) {
+                        grid-area: email-icon;
+                    }
+                }
+
+                p {
+                    font-family: 'Poppins-Light', sans-serif;
+                    font-size: .8rem;
+                    justify-self: flex-start;
+                    text-align: left;
+
+                    &:nth-of-type(1) {
+                        grid-area: location-detail;
+                    }
+
+                    &:nth-of-type(2) {
+                        grid-area: phone-detail;
+                    }
+
+                    &:nth-of-type(3) {
+                        grid-area: email-detail;
+                    }
+                }
+            }
+
+            form {
+                grid-area: form;
+                margin: 30px 0;
+            }
+        }
     }
 }
 
@@ -436,7 +605,10 @@ main {
 
 @media screen and (min-width:450px) {
     main {
-        grid-template-columns: 80%;
+        section {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
     }
 }
 
@@ -446,8 +618,9 @@ main {
         section {
             padding: 60px 0;
 
+
             &#section1 {
-                grid-template-columns: repeat(3, calc(90% / 3));
+                grid-template-columns: repeat(3, calc(85% / 3));
                 grid-template-rows: repeat(4, auto);
                 grid-template-areas:
                     "h2 h2 h2"
@@ -465,7 +638,8 @@ main {
             &#section3 {
                 gap: 0;
                 grid-template-rows: repeat(auto-fit, auto);
-                padding: 0 30px;
+                padding-left: 40px;
+                padding-right: 40px;
             }
 
             &#section2 {
@@ -486,6 +660,7 @@ main {
                     align-self: flex-end;
                 }
 
+                h2,
                 p {
                     text-align: left;
                 }
@@ -506,7 +681,6 @@ main {
                     "illustration . h5"
                     "illustration . h2"
                     "illustration . form";
-                padding: 0;
 
                 img {
                     margin: 0;
@@ -642,6 +816,102 @@ main {
 
             p {
                 // font-size: 1.3rem;
+            }
+        }
+    }
+
+    main {
+        section {
+
+            &#section2,
+            &#section3 {
+                padding-left: 80px;
+                padding-right: 80px;
+            }
+
+            &#section6 {
+                grid-template-columns: repeat(3, calc(90% / 3));
+                grid-template-rows: repeat(3, auto);
+                grid-template-areas:
+                    "h2 h2 h2"
+                    "p p p"
+                    "article1 article2 article3";
+                justify-content: center;
+
+                p {
+
+                    &:nth-of-type(even) {
+                        margin: 10px 0;
+                    }
+                }
+
+                article {
+                    background-color: white;
+                    border-radius: 8px;
+                    box-shadow: 0 0 5px #0e1019;
+                    color: #252B42;
+                    margin-top: 20px;
+                    padding: 40px 20px;
+
+                    &:nth-of-type(1) {
+                        grid-area: article1;
+                    }
+
+                    &:nth-of-type(2) {
+                        background-color: #2091F9;
+                        color: white;
+                        grid-area: article2;
+
+                        button {
+                            background-color: white;
+                            color: #2091F9;
+                        }
+                    }
+
+                    &:nth-of-type(3) {
+                        grid-area: article3;
+                    }
+
+                    p {
+                        &:first-of-type {
+                            max-width: 70%;
+                            margin: 0 auto;
+                        }
+                    }
+
+                    h3 {
+                        font-family: 'Poppins-ExtraBold', sans-serif;
+                        text-transform: uppercase;
+                    }
+
+                    .price {
+                        align-items: center;
+                        display: flex;
+                        justify-content: center;
+                        gap: 5px;
+
+                        .number {
+                            font-family: 'Poppins-ExtraBold', sans-serif;
+                            font-size: 3.5rem;
+                        }
+
+                        .details {
+                            align-items: flex-start;
+                            display: flex;
+                            flex-direction: column;
+
+                            span {
+                                &:first-of-type {
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                button {
+                    margin-top: 20px;
+                }
             }
         }
     }

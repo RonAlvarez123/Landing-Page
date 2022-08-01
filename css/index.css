@@ -179,7 +179,6 @@ header section p {
 main {
   display: grid;
   font-family: 'Poppins', sans-serif;
-  grid-template-columns: 90%;
   justify-content: center;
   margin: 80px auto 20px auto;
   text-align: center;
@@ -190,7 +189,7 @@ main section {
   gap: 15px;
   grid-template-rows: repeat(auto-fit, auto);
   place-items: center;
-  padding: 40px 0;
+  padding: 40px 20px;
 }
 
 main section:first-of-type {
@@ -401,9 +400,160 @@ main section#section5 button {
   grid-area: button;
 }
 
+main section#section6 {
+  background-color: #252B42;
+  color: white;
+  grid-template-areas: "h2" "p" "article1" "article2" "article3";
+}
+
+main section#section6 p:nth-of-type(even) {
+  margin: 10px 0;
+}
+
+main section#section6 article {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 5px #0e1019;
+  color: #252B42;
+  margin-top: 20px;
+  padding: 40px 20px;
+}
+
+main section#section6 article:nth-of-type(1) {
+  grid-area: article1;
+}
+
+main section#section6 article:nth-of-type(2) {
+  background-color: #2091F9;
+  color: white;
+  grid-area: article2;
+}
+
+main section#section6 article:nth-of-type(2) button {
+  background-color: white;
+  color: #2091F9;
+}
+
+main section#section6 article:nth-of-type(3) {
+  grid-area: article3;
+}
+
+main section#section6 article p:first-of-type {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+main section#section6 article h3 {
+  font-family: 'Poppins-ExtraBold', sans-serif;
+  text-transform: uppercase;
+}
+
+main section#section6 article .price {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+main section#section6 article .price .number {
+  font-family: 'Poppins-ExtraBold', sans-serif;
+  font-size: 3.5rem;
+}
+
+main section#section6 article .price .details {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+main section#section6 article .price .details span:first-of-type {
+  font-weight: bold;
+}
+
+main section#section6 button {
+  margin-top: 20px;
+}
+
+main section#section7 {
+  grid-template-areas: "h2" "p" "links" "contact-details" "form";
+}
+
+main section#section7 .map {
+  display: none;
+}
+
+main section#section7 .links {
+  display: flex;
+  grid-area: links;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+main section#section7 .links a {
+  height: 30px;
+}
+
+main section#section7 .links a img {
+  height: 100%;
+  width: 100%;
+}
+
+main section#section7 article {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  grid-area: contact-details;
+  grid-template-columns: 40px auto;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: "location-icon location-detail" "phone-icon phone-detail" "email-icon email-detail";
+}
+
+main section#section7 article img {
+  justify-self: center;
+  max-height: 30px;
+  max-width: 30px;
+}
+
+main section#section7 article img:nth-of-type(1) {
+  grid-area: location-icon;
+}
+
+main section#section7 article img:nth-of-type(2) {
+  grid-area: phone-icon;
+}
+
+main section#section7 article img:nth-of-type(3) {
+  grid-area: email-icon;
+}
+
+main section#section7 article p {
+  font-family: 'Poppins-Light', sans-serif;
+  font-size: .8rem;
+  justify-self: flex-start;
+  text-align: left;
+}
+
+main section#section7 article p:nth-of-type(1) {
+  grid-area: location-detail;
+}
+
+main section#section7 article p:nth-of-type(2) {
+  grid-area: phone-detail;
+}
+
+main section#section7 article p:nth-of-type(3) {
+  grid-area: email-detail;
+}
+
+main section#section7 form {
+  grid-area: form;
+  margin: 30px 0;
+}
+
 @media screen and (min-width: 450px) {
-  main {
-    grid-template-columns: 80%;
+  main section {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
@@ -412,7 +562,7 @@ main section#section5 button {
     padding: 60px 0;
   }
   main section#section1 {
-    grid-template-columns: repeat(3, calc(90% / 3));
+    grid-template-columns: repeat(3, calc(85% / 3));
     grid-template-rows: repeat(4, auto);
     grid-template-areas: "h2 h2 h2" "p p p" "vector1 vector2 vector3" "video video video";
     justify-content: center;
@@ -423,7 +573,8 @@ main section#section5 button {
   main section#section2, main section#section3 {
     gap: 0;
     grid-template-rows: repeat(auto-fit, auto);
-    padding: 0 30px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   main section#section2 {
     grid-template-columns: repeat(2, 50%);
@@ -438,6 +589,7 @@ main section#section5 button {
   main section#section2 h2 {
     align-self: flex-end;
   }
+  main section#section2 h2,
   main section#section2 p {
     text-align: left;
   }
@@ -451,7 +603,6 @@ main section#section5 button {
     display: grid;
     grid-template-columns: 50% 20px calc(50% - 20px);
     grid-template-areas: "illustration . h5" "illustration . h2" "illustration . form";
-    padding: 0;
   }
   main section#section3 img {
     margin: 0;
@@ -544,6 +695,71 @@ main section#section5 button {
     font-family: 'Poppins-ExtraBold', sans-serif;
     font-size: 2rem;
     width: 600px;
+  }
+  main section#section2, main section#section3 {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  main section#section6 {
+    grid-template-columns: repeat(3, calc(90% / 3));
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: "h2 h2 h2" "p p p" "article1 article2 article3";
+    justify-content: center;
+  }
+  main section#section6 p:nth-of-type(even) {
+    margin: 10px 0;
+  }
+  main section#section6 article {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 5px #0e1019;
+    color: #252B42;
+    margin-top: 20px;
+    padding: 40px 20px;
+  }
+  main section#section6 article:nth-of-type(1) {
+    grid-area: article1;
+  }
+  main section#section6 article:nth-of-type(2) {
+    background-color: #2091F9;
+    color: white;
+    grid-area: article2;
+  }
+  main section#section6 article:nth-of-type(2) button {
+    background-color: white;
+    color: #2091F9;
+  }
+  main section#section6 article:nth-of-type(3) {
+    grid-area: article3;
+  }
+  main section#section6 article p:first-of-type {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+  main section#section6 article h3 {
+    font-family: 'Poppins-ExtraBold', sans-serif;
+    text-transform: uppercase;
+  }
+  main section#section6 article .price {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  main section#section6 article .price .number {
+    font-family: 'Poppins-ExtraBold', sans-serif;
+    font-size: 3.5rem;
+  }
+  main section#section6 article .price .details {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+  main section#section6 article .price .details span:first-of-type {
+    font-weight: bold;
+  }
+  main section#section6 button {
+    margin-top: 20px;
   }
 }
 
