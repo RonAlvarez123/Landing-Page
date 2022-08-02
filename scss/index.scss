@@ -54,7 +54,7 @@ nav {
     display: flex;
     font-family: 'Poppins', sans-serif;
     height: 80px;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     z-index: 1;
@@ -194,7 +194,6 @@ main {
         display: grid;
         gap: 15px;
         grid-template-rows: repeat(auto-fit, auto);
-        // min-height: 500px;
         place-items: center;
         padding: 40px 20px;
 
@@ -546,9 +545,10 @@ main {
             article {
                 align-items: center;
                 display: grid;
-                gap: 10px;
+                column-gap: 15px;
+                row-gap: 25px;
                 grid-area: contact-details;
-                grid-template-columns: 40px auto;
+                grid-template-columns: 30px auto;
                 grid-template-rows: repeat(3, auto);
                 grid-template-areas:
                     "location-icon location-detail"
@@ -594,8 +594,80 @@ main {
             }
 
             form {
+                border: 1px solid rgb(216, 216, 216);
+                border-radius: 10px;
+                box-shadow: 0 5px 10px rgb(223, 223, 223);
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
                 grid-area: form;
                 margin: 30px 0;
+                padding: 30px;
+
+                h5 {
+                    font-family: 'Poppins-ExtraBold', sans-serif;
+                }
+
+                textarea {
+                    border-radius: 0;
+                    resize: none;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: #252B42;
+    color: white;
+    display: grid;
+    font-family: 'Poppins-Light', sans-serif;
+    font-size: .8rem;
+    justify-content: center;
+    padding: 100px 20px;
+
+    img {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    ul {
+        list-style-type: none;
+        margin-bottom: 40px;
+        text-align: center;
+
+        li {
+            margin-bottom: 10px;
+
+            &:first-of-type {
+                font-family: 'Poppins-ExtraBold', sans-serif;
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        article {
+            justify-content: center;
+
+            &:first-of-type {
+                align-items: center;
+                gap: 10px;
+                display: grid;
+                grid-template-columns: 30px minmax(auto, 70%);
+                grid-template-rows: repeat(2, 30px);
+            }
+
+            &:last-of-type {
+                display: grid;
+                grid-template-columns: repeat(3, 30px);
+                gap: 10px;
+
             }
         }
     }
@@ -711,7 +783,7 @@ main {
             &#section4 {
                 .companies {
                     gap: 10px;
-                    grid-template-columns: repeat(4, 20%);
+                    grid-template-columns: repeat(4, minmax(15%, 150px));
                     grid-template-rows: repeat(3, auto);
                     grid-template-areas:
                         "google google amazon amazon"
@@ -810,12 +882,7 @@ main {
             h1 {
                 font-family: 'Poppins-ExtraBold', sans-serif;
                 font-size: 2rem;
-                // font-size: 3rem;
                 width: 600px;
-            }
-
-            p {
-                // font-size: 1.3rem;
             }
         }
     }
@@ -855,6 +922,7 @@ main {
 
                     &:nth-of-type(1) {
                         grid-area: article1;
+                        justify-self: flex-end;
                     }
 
                     &:nth-of-type(2) {
@@ -870,6 +938,7 @@ main {
 
                     &:nth-of-type(3) {
                         grid-area: article3;
+                        justify-self: flex-start;
                     }
 
                     p {
@@ -913,6 +982,71 @@ main {
                     margin-top: 20px;
                 }
             }
+
+            &#section7 {
+                grid-template-columns: minmax(50%, 300px) minmax(350px, 450px);
+                grid-template-rows: auto auto 150px minmax(100px, 220px) auto;
+                grid-template-areas:
+                    "h2 h2 h2"
+                    "p p p"
+                    "form contact-details contact-details"
+                    "form map map"
+                    "form links .";
+
+                padding-left: 30px;
+                padding-right: 30px;
+
+                .map {
+                    background-image: url('../images/map.png');
+                    background-position: center;
+                    background-size: cover;
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .links,
+                article {
+                    justify-self: flex-start;
+                }
+
+                .links {
+                    align-self: flex-start;
+                }
+
+                form {
+                    align-self: flex-start;
+                    justify-self: flex-end;
+                    margin: 10px 30px 0 0;
+                    max-width: 300px;
+                    width: 70%;
+                }
+            }
+        }
+    }
+
+    footer {
+        gap: 20px;
+        grid-template-columns: repeat(3, 100px) minmax(auto, 350px);
+
+        ul {
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        div {
+
+            article {
+
+                &:first-of-type {
+                    grid-template-columns: 30px minmax(auto, 320px);
+                }
+
+                &:last-of-type {
+                    justify-content: flex-start;
+
+                }
+            }
         }
     }
 }
@@ -925,7 +1059,7 @@ main {
                 form {
                     display: grid;
                     gap: 0;
-                    grid-template-columns: 60% 40%;
+                    grid-template-columns: calc(100% - 140px) 140px;
                     grid-template-rows: repeat(auto-fit, auto);
                     grid-template-areas:
                         "h5 h5"
@@ -948,6 +1082,19 @@ main {
                         grid-area: button;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1100px) {
+    main {
+        section {
+
+            &#section2,
+            &#section3 {
+                padding-left: 140px;
+                padding-right: 140px;
             }
         }
     }
