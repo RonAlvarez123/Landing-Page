@@ -45,6 +45,14 @@
   padding: 6px 15px;
 }
 
+nav,
+header,
+main,
+main section,
+footer {
+  overflow: hidden;
+}
+
 nav {
   align-items: center;
   color: white;
@@ -187,9 +195,11 @@ main {
 main section {
   display: grid;
   gap: 15px;
+  grid-template-columns: calc(100% - 40px);
   grid-template-rows: repeat(auto-fit, auto);
+  justify-content: center;
   place-items: center;
-  padding: 40px 20px;
+  padding: 40px 0;
 }
 
 main section:first-of-type {
@@ -624,17 +634,18 @@ footer div article:last-of-type {
 
 @media screen and (min-width: 450px) {
   main section {
-    padding-left: 40px;
-    padding-right: 40px;
+    grid-template-columns: calc(100%-40px);
   }
 }
 
 @media screen and (min-width: 650px) {
   main section {
+    grid-template-columns: calc(100% - 80px);
+    justify-content: center;
     padding: 60px 0;
   }
   main section#section1 {
-    grid-template-columns: repeat(3, calc(85% / 3));
+    grid-template-columns: repeat(3, calc(calc(100% / 3) - 40px));
     grid-template-rows: repeat(4, auto);
     grid-template-areas: "h2 h2 h2" "p p p" "vector1 vector2 vector3" "video video video";
     justify-content: center;
@@ -645,13 +656,10 @@ footer div article:last-of-type {
   main section#section2, main section#section3 {
     gap: 0;
     grid-template-rows: repeat(auto-fit, auto);
-    padding-left: 40px;
-    padding-right: 40px;
   }
   main section#section2 {
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, calc(50% - 40px));
     grid-template-areas: "h2 monitor" "p monitor" "button monitor";
-    justify-content: flex-start;
   }
   main section#section2 h2,
   main section#section2 p,
@@ -673,7 +681,7 @@ footer div article:last-of-type {
   }
   main section#section3 {
     display: grid;
-    grid-template-columns: 50% 20px calc(50% - 20px);
+    grid-template-columns: 50% 20px calc(50% - 100px);
     grid-template-areas: "illustration . h5" "illustration . h2" "illustration . form";
   }
   main section#section3 img {
@@ -722,10 +730,6 @@ footer div article:last-of-type {
     font-family: 'Poppins', sans-serif;
     font-size: .7rem;
   }
-  main section#section5 {
-    grid-template-columns: 80%;
-    justify-content: center;
-  }
   main section#section5 article {
     display: grid;
     grid-template-columns: 80px 10px auto;
@@ -768,15 +772,13 @@ footer div article:last-of-type {
     font-size: 2rem;
     width: 600px;
   }
-  main section#section2, main section#section3 {
-    padding-left: 80px;
-    padding-right: 80px;
+  main section#section5 > p {
+    max-width: 615px;
   }
   main section#section6 {
-    grid-template-columns: repeat(3, calc(90% / 3));
+    grid-template-columns: repeat(3, calc(calc(100% / 3) - 40px));
     grid-template-rows: repeat(3, auto);
     grid-template-areas: "h2 h2 h2" "p p p" "article1 article2 article3";
-    justify-content: center;
   }
   main section#section6 p:nth-of-type(even) {
     margin: 10px 0;
@@ -836,11 +838,9 @@ footer div article:last-of-type {
     margin-top: 20px;
   }
   main section#section7 {
-    grid-template-columns: minmax(50%, 300px) minmax(350px, 450px);
+    grid-template-columns: minmax(calc(50% - 40px), 260px) minmax(310px, 410px);
     grid-template-rows: auto auto 150px minmax(100px, 220px) auto;
     grid-template-areas: "h2 h2 h2" "p p p" "form contact-details contact-details" "form map map" "form links .";
-    padding-left: 30px;
-    padding-right: 30px;
   }
   main section#section7 .map {
     background-image: url("../images/map.png");

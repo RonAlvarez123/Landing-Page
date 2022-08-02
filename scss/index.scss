@@ -48,6 +48,14 @@ $vectorSize: 40px;
     padding: 6px 15px;
 }
 
+nav,
+header,
+main,
+main section,
+footer {
+    overflow: hidden;
+}
+
 nav {
     align-items: center;
     color: white;
@@ -193,9 +201,11 @@ main {
     section {
         display: grid;
         gap: 15px;
+        grid-template-columns: calc(100% - 40px);
         grid-template-rows: repeat(auto-fit, auto);
+        justify-content: center;
         place-items: center;
-        padding: 40px 20px;
+        padding: 40px 0;
 
         &:first-of-type {
             padding-top: 0;
@@ -678,8 +688,7 @@ footer {
 @media screen and (min-width:450px) {
     main {
         section {
-            padding-left: 40px;
-            padding-right: 40px;
+            grid-template-columns: calc(100%-40px);
         }
     }
 }
@@ -688,11 +697,13 @@ footer {
     main {
 
         section {
+            grid-template-columns: calc(100% - 80px);
+            justify-content: center;
             padding: 60px 0;
 
 
             &#section1 {
-                grid-template-columns: repeat(3, calc(85% / 3));
+                grid-template-columns: repeat(3, calc(calc(100% / 3) - 40px));
                 grid-template-rows: repeat(4, auto);
                 grid-template-areas:
                     "h2 h2 h2"
@@ -710,17 +721,14 @@ footer {
             &#section3 {
                 gap: 0;
                 grid-template-rows: repeat(auto-fit, auto);
-                padding-left: 40px;
-                padding-right: 40px;
             }
 
             &#section2 {
-                grid-template-columns: repeat(2, 50%);
+                grid-template-columns: repeat(2, calc(50% - 40px));
                 grid-template-areas:
                     "h2 monitor"
                     "p monitor"
                     "button monitor";
-                justify-content: flex-start;
 
                 h2,
                 p,
@@ -748,7 +756,7 @@ footer {
 
             &#section3 {
                 display: grid;
-                grid-template-columns: 50% 20px calc(50% - 20px);
+                grid-template-columns: 50% 20px calc(50% - 100px);
                 grid-template-areas:
                     "illustration . h5"
                     "illustration . h2"
@@ -781,6 +789,7 @@ footer {
             }
 
             &#section4 {
+
                 .companies {
                     gap: 10px;
                     grid-template-columns: repeat(4, minmax(15%, 150px));
@@ -822,8 +831,6 @@ footer {
             }
 
             &#section5 {
-                grid-template-columns: 80%;
-                justify-content: center;
 
                 article {
                     display: grid;
@@ -890,20 +897,19 @@ footer {
     main {
         section {
 
-            &#section2,
-            &#section3 {
-                padding-left: 80px;
-                padding-right: 80px;
+            &#section5 {
+                &>p {
+                    max-width: 615px;
+                }
             }
 
             &#section6 {
-                grid-template-columns: repeat(3, calc(90% / 3));
+                grid-template-columns: repeat(3, calc(calc(100% / 3) - 40px));
                 grid-template-rows: repeat(3, auto);
                 grid-template-areas:
                     "h2 h2 h2"
                     "p p p"
                     "article1 article2 article3";
-                justify-content: center;
 
                 p {
 
@@ -984,7 +990,7 @@ footer {
             }
 
             &#section7 {
-                grid-template-columns: minmax(50%, 300px) minmax(350px, 450px);
+                grid-template-columns: minmax(calc(50% - 40px), 260px) minmax(310px, 410px);
                 grid-template-rows: auto auto 150px minmax(100px, 220px) auto;
                 grid-template-areas:
                     "h2 h2 h2"
@@ -992,9 +998,6 @@ footer {
                     "form contact-details contact-details"
                     "form map map"
                     "form links .";
-
-                padding-left: 30px;
-                padding-right: 30px;
 
                 .map {
                     background-image: url('../images/map.png');
