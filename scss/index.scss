@@ -21,6 +21,10 @@ $vectorSize: 40px;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .desktop {
     display: none;
 }
@@ -98,23 +102,38 @@ nav {
     ul {
         align-items: center;
         display: flex;
-        list-style-type: none;
         height: 100%;
+        list-style-type: none;
 
         li {
             align-items: center;
             cursor: pointer;
             justify-content: center;
             display: flex;
+
+            a {
+                align-items: center;
+                color: white;
+                display: flex;
+                height: 100%;
+                justify-content: center;
+                padding: 0;
+                text-decoration: none;
+                width: 100%;
+            }
+
         }
 
         &:first-of-type {
             li {
                 height: 100%;
-                padding: 0 15px;
 
-                &:hover {
-                    background-color: rgba($color: white, $alpha: .3);
+                a {
+                    padding: 0 15px;
+
+                    &:hover {
+                        background-color: rgba($color: white, $alpha: .3);
+                    }
                 }
             }
         }
@@ -231,7 +250,7 @@ main {
             grid-area: p;
         }
 
-        &#section1 {
+        &.section1 {
             grid-template-areas:
                 "h2"
                 "p"
@@ -316,7 +335,7 @@ main {
             }
         }
 
-        &#section2 {
+        &.section2 {
             grid-template-areas:
                 "h2"
                 "p"
@@ -336,7 +355,7 @@ main {
             }
         }
 
-        &#section3 {
+        &.section3 {
             grid-template-areas:
                 "h5"
                 "h2"
@@ -365,7 +384,7 @@ main {
             }
         }
 
-        &#section4 {
+        &.section4 {
             grid-template-areas:
                 "h2"
                 "p"
@@ -407,7 +426,7 @@ main {
             }
         }
 
-        &#section5 {
+        &.section5 {
             grid-template-areas:
                 "h2"
                 "ibm"
@@ -438,7 +457,7 @@ main {
             }
         }
 
-        &#section6 {
+        &.section6 {
             background-color: #252B42;
             color: white;
             grid-template-areas:
@@ -524,7 +543,7 @@ main {
             }
         }
 
-        &#section7 {
+        &.section7 {
             grid-template-areas:
                 "h2"
                 "p"
@@ -702,7 +721,7 @@ footer {
             padding: 60px 0;
 
 
-            &#section1 {
+            &.section1 {
                 grid-template-columns: repeat(3, calc(calc(100% / 3) - 40px));
                 grid-template-rows: repeat(4, auto);
                 grid-template-areas:
@@ -717,13 +736,13 @@ footer {
                 }
             }
 
-            &#section2,
-            &#section3 {
+            &.section2,
+            &.section3 {
                 gap: 0;
                 grid-template-rows: repeat(auto-fit, auto);
             }
 
-            &#section2 {
+            &.section2 {
                 grid-template-columns: repeat(2, calc(50% - 40px));
                 grid-template-areas:
                     "h2 monitor"
@@ -754,7 +773,7 @@ footer {
                 }
             }
 
-            &#section3 {
+            &.section3 {
                 display: grid;
                 grid-template-columns: 50% 20px calc(50% - 100px);
                 grid-template-areas:
@@ -788,7 +807,7 @@ footer {
                 }
             }
 
-            &#section4 {
+            &.section4 {
 
                 .companies {
                     gap: 10px;
@@ -830,7 +849,7 @@ footer {
                 }
             }
 
-            &#section5 {
+            &.section5 {
 
                 article {
                     display: grid;
@@ -897,13 +916,13 @@ footer {
     main {
         section {
 
-            &#section5 {
+            &.section5 {
                 &>p {
                     max-width: 615px;
                 }
             }
 
-            &#section6 {
+            &.section6 {
                 grid-template-columns: repeat(3, calc(calc(100% / 3) - 40px));
                 grid-template-rows: repeat(3, auto);
                 grid-template-areas:
@@ -989,7 +1008,7 @@ footer {
                 }
             }
 
-            &#section7 {
+            &.section7 {
                 grid-template-columns: minmax(calc(50% - 40px), 260px) minmax(310px, 410px);
                 grid-template-rows: auto auto 150px minmax(100px, 220px) auto;
                 grid-template-areas:
@@ -1057,7 +1076,7 @@ footer {
 @media screen and (min-width:800px) {
     main {
         section {
-            &#section3 {
+            &.section3 {
 
                 form {
                     display: grid;
@@ -1094,13 +1113,17 @@ footer {
     main {
         section {
 
-            &#section2,
-            &#section3 {
+            &.section1 {
+                grid-template-columns: repeat(3, calc(70% / 3));
+            }
+
+            &.section2,
+            &.section3 {
                 padding-left: 140px;
                 padding-right: 140px;
             }
 
-            &#section7 {
+            &.section7 {
                 grid-template-columns: repeat(2, calc(50% - 60px));
 
                 .map {
